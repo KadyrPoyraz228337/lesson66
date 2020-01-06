@@ -1,20 +1,17 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import CatsPicturesGenerator from "./components/CatsPicturesGenerator/CatsPicturesGenerator";
+import {Container} from "reactstrap";
+
 
 class App extends Component {
-  state = null;
 
-  async componentDidMount() {
-    const resp = await axios('https://aws.random.cat/meow');
-    console.log(resp.data);
-    this.setState(resp.data);
-  }
 
-  render() {
-        return this.state && (
-            <div>
-              <img src={this.state.file} alt=""/>
-            </div>
+    render() {
+        return (
+                <Container className='d-flex flex-column align-items-center border rounded bg-light my-2'
+                           style={{height: 'calc(100vh - 16px)'}}>
+                    <CatsPicturesGenerator/>
+                </Container>
         );
     }
 }
